@@ -9,8 +9,8 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Harrison Finch.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -69,6 +69,22 @@ def run_test_draw_parallel_lines():
 
 
 def draw_parallel_lines(n, point, length, window):
+
+    newx = point.x
+    newy = point.y
+    newstart= rg.Point(newx, newy)
+    newend = rg.Point(newx + length, newy)
+    line = rg.Line(newstart, newend)
+    line.attach_to(window)
+    for k in range(n):
+        nextstart = rg.Point(newx, newy + 30 * k)
+        nextend = rg.Point(newx + length, newy + 30 * k)
+        newline = rg.Line(nextstart, nextend)
+        newline.attach_to(window)
+        window.render()
+    window.continue_on_mouse_click()
+
+
     """
     What comes in: The four arguments are:
       -- A positive integer n.
@@ -96,7 +112,7 @@ def draw_parallel_lines(n, point, length, window):
       :type window: rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # done: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -134,6 +150,22 @@ def run_test_draw_lines():
 
 
 def draw_lines(n, point, window):
+
+    n > 2
+    newx = point.x
+    newy = point.y
+    newstart = rg.Point(newx, newy)
+    newend = rg.Point(newx, newy)
+    line = rg.Line(newstart, newend)
+    line.attach_to(window)
+
+    for k in range(-100,100):
+        nextstart = rg.Point(newx + 100, newy)
+        nextend = rg.Point(newx, newy + k)
+        newline = rg.Line(nextstart, nextend)
+        newline.attach_to(window)
+        window.render()
+    window.continue_on_mouse_click()
     """
     What comes in: The three arguments are:
       -- A integer n that is at least 2.
