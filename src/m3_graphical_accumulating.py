@@ -151,7 +151,6 @@ def run_test_draw_lines():
 
 def draw_lines(n, point, window):
 
-    n > 2
     newx = point.x
     newy = point.y
     newstart = rg.Point(newx, newy)
@@ -193,7 +192,7 @@ def draw_lines(n, point, window):
       :type window: rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
